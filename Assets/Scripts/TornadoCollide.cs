@@ -22,7 +22,7 @@ public class TornadoCollide : MonoBehaviour {
             Rigidbody collidedRB = collisionInfo.gameObject.GetComponent<Rigidbody>();
             NavMeshAgent thisNMA = this.GetComponent<NavMeshAgent>();
             Debug.Log("Tornado velocity: " + thisNMA.velocity.normalized);
-            collidedRB.AddForce(thisNMA.velocity.normalized * speed);
+            collidedRB.AddForce(Vector3.Cross(thisNMA.velocity.normalized, Vector3.up) * speed);
         }
     }
 
